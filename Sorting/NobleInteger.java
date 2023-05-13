@@ -16,7 +16,7 @@
             {
                 //The continue statement breaks one iteration (in the loop),
                 // if a specified condition occurs, and continues with the next iteration in the loop.
-                if(Array[i] == Array[i+1])
+                if(i+1<size && Array[i] == Array[i+1])
                     continue;
                 if(Array[i] == (size-i-1)) // (size-i-1) means check
                     // where the same elements are present after sorting

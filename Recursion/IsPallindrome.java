@@ -64,3 +64,45 @@ public class PalindromeChecker {
         }
     }
 }
+
+
+
+
+
+
+// Another recursive approach
+
+public class PalindromeChecker {
+    public static int isPalindrome(String str) {
+        // Remove any non-alphanumeric characters and convert to lowercase
+        str = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        return isPalindromeHelper(str, 0, str.length() - 1);
+    }
+
+    private static int isPalindromeHelper(String str, int left, int right) {
+        // Base cases:
+        if (left >= right) {
+            return 1;  // All characters have been compared and matched
+        }
+
+        if (str.charAt(left) != str.charAt(right)) {
+            return 0;  // Characters don't match, not a palindrome
+        }
+
+        // Recursive case:
+        // Move the pointers inward and check the next characters
+        return isPalindromeHelper(str, left + 1, right - 1);
+    }
+
+    public static void main(String[] args) {
+        String word = "level";
+        int result = isPalindrome(word);
+        if (result == 1) {
+            System.out.println(word + " is a palindrome.");
+        } else {
+            System.out.println(word + " is not a palindrome.");
+        }
+    }
+}
+
